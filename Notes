@@ -1,0 +1,172 @@
+Push alll code to github.
+
+Steps:
+
+1. Go to https://github.com/
+2. Create new Repository
+3. Don't add readme file.
+4. Open Folder Inception and one file inside it and inside that folder open terminal.
+   Commands:
+   cd '.\Inception_Eposide 01\'
+   cd .\04_Part\
+    Create 1 readme file
+   git add .
+   git commit -m "inception how to create react"
+   git branch -M main
+   git remote add origin git@github.com:samidha3199/Learning-React-Js-.git
+   git push -u origin main
+   Just go to browser and refresh the page.
+   This is our code https://github.com/samidha3199/Learning-React-Js-
+
+Till now we have written our code in index.html and js file and use cdn but is this code ready to
+go on production?
+No, Bcoz this code is not optimize(to make as perfect, effective, or functional as possible).
+
+What is Production App?
+There should not be comments, console.log
+If there are 10000 of files we need to bundle that files.
+Compress our code.
+Minified our files.
+Suppose my app has lots of images in it we need to optimize it.
+Before our app going to production we need to make lots of process in our local.
+We need to do code splitting, chunking, image optimization etc
+
+How to create your own Production ready react app without using existing once.
+
+1. Can React itself do the production ready app?
+   no bcoz there are lots of package/library that are require to make our app production ready.
+
+2. What is NPM?
+   https://www.npmjs.com/
+   NPM does not have full form.
+   Infact NPM does not stand for node package manager.
+   NPM behind the sceens works as node pacakge manager. It manages the pacakges.
+   It is standard Repository for all the packages.
+   It is biggest pacakge manager.
+   Any package u want to include in your project u can use NPM.
+   All types of pacakges,library,utilities are hosted over here.
+
+Note: when u create recat app using bundler or create-react-app it automatically has npm inside it
+we don't need to config it.
+
+3. How to use npm in our project?
+   npm init
+
+   then add some information:
+   package name: (01_part)
+   version: (1.0.0)  
+   description: namaste react  
+   entry point: (App.js)  
+   test command: jest  
+   git repository:  
+   keywords: react
+   yes
+
+   or u can do
+   npm init -y
+   (Same command but it will skip the information )
+
+Output: pacakge.json file created in our project
+
+- Packages are also known as dependencies.
+
+4. What is pacakge.json file?
+1. This is entry file of our project.
+1. It is configuration for npm.
+1. The file is in json structure.
+1. It keeps the track of what is the version of that package.
+
+1. Why we need pacakge.json file?
+   The package.json file is needed to keep track of important information about a Node.js project, like what packages it depends on (dependencies), what version of Node.js it requires, and how to run certain commands (scripts).
+
+1. The most import package in our project is?
+   Bundler
+
+1. What is the bundler?
+   Through bundler we can minified, compress, bundle together/combine together, clean our code
+   cache our code before send to production and all this job is done by bundler.
+   Bascially its job is to bundle our app and shift to production.
+
+1. Types of Bundler?
+1. Webpack
+1. Parcel
+1. Vite
+1. Rollup
+1. Browserify
+1. Brunch
+1. FuseBox
+   etc....
+
+Note: create-react-app uses webpack as a bundler
+
+Note: U can choose any of the bundler of ur choice. Everyone do the same job. But everyone has different algorithm.All bundler are same but.
+
+Here we are using parcel as a bundler.
+
+What are 2 types dependency that our app can have?
+
+1. Dev Dependency
+   This dependency are required in development phase.
+   Means when we are developing our app.
+
+2. Normal Dependency
+   Normal dependencies are used in both development and production.
+
+Install Parcel as Dev Dependency
+npm install -D parcel
+Output:
+U will get node_module folder
+Inpackage.json file u can see
+"devDependencies": {
+"parcel": "^2.12.0"
+}
+
+What is ^2.12.0 ^?
+This is caret.
+Right now the version is 2.12.0 if suppose tomorrow new minor version came we put caret it will automatically update the new version 2.13.0
+I will upgrade the minor verion.
+
+Instead of caret ^ we can put tilde ~
+
+What is ~?
+This is tilde.
+It will upgrade the major version.
+2.12.0 to 3.0.0 this is major upgrade.
+
+WE should always use ^ bcoz it is always best. If we try to upgrade major version lots of things will break into our app/project.
+
+What is package-lock.json?
+It keeps the track of exact version. Bascially its lock the version of the package.
+It keeps the record of exact version.
+
+Difference between pacakge.json and package-lock.json?
+package.json will have ~ or ^ means any upgrade it will update the version.
+But package.json will have the exact version only.
+
+What is "integrity" in package-lock.json?
+It is hash.
+It is used to verify Whatever is there on my local/machine is the same version deploy on production.
+
+What is node_modules folder?
+It contains all the code that we fetch from npm.
+It contains all dependency.
+It contains actual data of dependency.
+
+Why there are many files/folder in node_modules?
+Bcoz, our project need parcel.
+But parcel has its own dependency and those dependency have its own dependency.
+This is known as transistive dependency.
+(One dependency is depend on other dependency and that dependency is depend on other).
+
+How much package.json and pacakge-lock.json file have?
+Every package/project u see will have its own package.json and pacakge-lock.json file.
+
+\*\* Those Files/Folder we don't want to put of production/git we should put in .gitignore file
+Create this file
+
+Is it necessary to put node_module folder on github/production?
+No,Bcoz we can regenerate this folder.
+/node_modules
+
+Is it necessary to put package.json and pacakge-lock.json file?
+Yes, Imp
